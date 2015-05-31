@@ -1,0 +1,31 @@
+Student ID: 10223496
+Name:       Jake Kroon
+
+UNIT ID:   ICT209
+UNIT NAME: Data Structures and Abstractions
+CREDITS:   4
+MARKS:     90
+SEMESTER:  1
+DATE:      30/December/2008
+
+UNIT ID:   ICT283
+UNIT NAME: Software Development Frameworks
+CREDITS:   4
+MARKS:     70
+SEMESTER:  1
+DATE:      30/December/2008
+
+UNIT ID:   ICT284
+UNIT NAME: Systems Analysis and Design
+CREDITS:   3
+MARKS:     90
+SEMESTER:  2
+DATE:      30/June/2008
+
+UNIT ID:   ICT215
+UNIT NAME: Computer Graphics
+CREDITS:   4
+MARKS:     60
+SEMESTER:  2
+DATE:      30/June/2008
+
