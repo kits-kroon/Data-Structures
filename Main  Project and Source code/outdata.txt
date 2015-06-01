@@ -1,7 +1,14 @@
-Student ID: 22067232
+Student ID: 32067232
 Surname   : Kroon
-Unit code : ICT283
-Unit name : Software Development Frameworks
-Unit mark : 40
-Date      : 4/02/2016
+Unit code : MAS162
+Unit name : Foundations of Discrete Mathematics
+Unit mark : 84
+Date      : 1/08/2014
+
+Student ID: 32067232
+Surname   : Kroon
+Unit code : ICT167
+Unit name : Principles of Computer Science
+Unit mark : 84
+Date      : 15/03/2015
 

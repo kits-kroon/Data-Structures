@@ -1,5 +1,8 @@
 #include "StudentIO.h"
-
+#include <algorithm>
+#include <fstream>
+#include <cctype>
+#include <stdlib.h>
 /* Default Constructor is not intended to do anything, but stop the compiler
  * from making a default constructor
  */
@@ -11,7 +14,7 @@ StudentIO::StudentIO(string iFileName, string oFileName)
     SetOFileName(oFileName);
 }
 
-void StudentIO::GetHighestMarkOutput(const long sId, map<long, Student> & students) const
+void StudentIO::GetHighestMarkOutput(const long sId, map<long, Student> & students, BinaryTree<Unit> & units) const
 {
     ofstream oFile(oFileName.c_str());
 
@@ -20,10 +23,15 @@ void StudentIO::GetHighestMarkOutput(const long sId, map<long, Student> & studen
     {
         if(students[sId].GetResult(i) == students[sId].GetHighestMark())
         {
+            Unit searchUnit;
+            searchUnit.SetId(students[sId].GetUnitId(i));
+
+            Unit unitHelper = units.Search(searchUnit);
+
             oFile << "Student ID: " << students[sId].GetStudentId()  << endl;
             oFile << "Surname   : " << students[sId].GetLastName()   << endl;
             oFile << "Unit code : " << students[sId].GetUnitId(i)    << endl;
-            oFile << "Unit name : " << students[sId].GetUnitName(i)  << endl;
+            oFile << "Unit name : " << unitHelper.GetName()          << endl;
             oFile << "Unit mark : " << students[sId].GetResult(i)    << endl;
             oFile << "Date      : " << students[sId].GetDay(i) << "/";
             oFile << students[sId].GetMonth(i) << "/" << students[sId].GetYear(i) << endl;
@@ -32,7 +40,7 @@ void StudentIO::GetHighestMarkOutput(const long sId, map<long, Student> & studen
             cout << "Student ID: " << students[sId].GetStudentId()  << endl;
             cout << "Surname   : " << students[sId].GetLastName()   << endl;
             cout << "Unit code : " << students[sId].GetUnitId(i)    << endl;
-            cout << "Unit name : " << students[sId].GetUnitName(i)  << endl;
+            cout << "Unit name : " << unitHelper.GetName()          << endl;
             cout << "Unit mark : " << students[sId].GetResult(i)    << endl;
             cout << "Date      : " << students[sId].GetDay(i) << "/";
             cout << students[sId].GetMonth(i) << "/" << students[sId].GetYear(i) << endl;
@@ -43,7 +51,7 @@ void StudentIO::GetHighestMarkOutput(const long sId, map<long, Student> & studen
     oFile.close();
 }
 
-void StudentIO::GetLowestMarkOutput(const long sId, map<long, Student> & students) const
+void StudentIO::GetLowestMarkOutput(const long sId, map<long, Student> & students, BinaryTree<Unit> & units) const
 {
     ofstream oFile(oFileName.c_str());
 
@@ -51,10 +59,16 @@ void StudentIO::GetLowestMarkOutput(const long sId, map<long, Student> & student
     {
         if(students[sId].GetResult(i) == students[sId].GetLowestMark())
         {
+
+            Unit searchUnit;
+            searchUnit.SetId(students[sId].GetUnitId(i));
+
+            Unit unitHelper = units.Search(searchUnit);
+
             oFile << "Student ID: " << students[sId].GetStudentId()  << endl;
             oFile << "Surname   : " << students[sId].GetLastName()   << endl;
             oFile << "Unit code : " << students[sId].GetUnitId(i)    << endl;
-            oFile << "Unit name : " << students[sId].GetUnitName(i)  << endl;
+            oFile << "Unit name : " << unitHelper.GetName()          << endl;
             oFile << "Unit mark : " << students[sId].GetResult(i)    << endl;
             oFile << "Date      : " << students[sId].GetDay(i) << "/";
             oFile << students[sId].GetMonth(i) << "/" << students[sId].GetYear(i) << endl;
@@ -63,7 +77,7 @@ void StudentIO::GetLowestMarkOutput(const long sId, map<long, Student> & student
             cout << "Student ID: " << students[sId].GetStudentId()  << endl;
             cout << "Surname   : " << students[sId].GetLastName()   << endl;
             cout << "Unit code : " << students[sId].GetUnitId(i)    << endl;
-            cout << "Unit name : " << students[sId].GetUnitName(i)  << endl;
+            cout << "Unit name : " << unitHelper.GetName()          << endl;
             cout << "Unit mark : " << students[sId].GetResult(i)    << endl;
             cout << "Date      : " << students[sId].GetDay(i) << "/";
             cout << students[sId].GetMonth(i) << "/" << students[sId].GetYear(i) << endl;
@@ -74,11 +88,11 @@ void StudentIO::GetLowestMarkOutput(const long sId, map<long, Student> & student
     oFile.close();
 }
 
-void StudentIO::GetGPACalcOutput(const long sId, map<long, Student> & students) const
+void StudentIO::GetGPACalcOutput(const long sId, map<long, Student> & students, BinaryTree<Unit> & units) const
 {
-    cout << "Student ID: " << students[sId].GetStudentId()    << endl;
-    cout << "Surname   : " << students[sId].GetLastName()     << endl;
-    cout << "GPA       : " << students[sId].CalculateGPA()    << endl;
+    cout << "Student ID: " << students[sId].GetStudentId()         << endl;
+    cout << "Surname   : " << students[sId].GetLastName()          << endl;
+    cout << "GPA       : " << students[sId].CalculateGPA(units)    << endl;
     cout << endl;
 }
 
@@ -92,7 +106,7 @@ void StudentIO::SetOFileName(string of)
     oFileName = of;
 }
 
-void StudentIO::InitialiseIO(map<long, Student> & students)
+void StudentIO::InitialiseIO(map<long, Student> & students, BinaryTree<Unit> & units)
 {
     ifstream inFile(iFileName.c_str());
     if(!inFile)
@@ -156,14 +170,20 @@ void StudentIO::InitialiseIO(map<long, Student> & students)
                 students[sIdL].SetLastName(lastN);
             }
 
-            students[sIdL].SetUnitName(i, name);
+            Unit newUnit;
+            newUnit.SetId(id);
+            newUnit.SetName(name);
+            newUnit.SetCredits(atol(credits.c_str()));
+
+            units.Insert(newUnit);
+
             students[sIdL].SetUnitId(i, id);
-            students[sIdL].SetUnitCredits(i, atol(credits.c_str()));
             students[sIdL].SetResult(i, atol(result.c_str()));
             students[sIdL].SetResultSemester(i, atol(sem.c_str()));
             students[sIdL].SetDay(i, atol(day.c_str()));
             students[sIdL].SetMonth(i, month);
             students[sIdL].SetYear(i, atol(year.c_str()));
+
         }
     }
 

@@ -1,7 +1,6 @@
 #ifndef UNIT_H
 #define UNIT_H
 
-#include <iostream>
 #include <string>
 
 using namespace std;
@@ -97,5 +96,8 @@ class Unit
         string id;        /** The id of the unit     */
         unsigned credits; /** The credis of the unit */
 };
+
+bool operator < (const Unit & lhs, const Unit & rhs);
+bool operator == (const Unit & lhs, const Unit & rhs);
 
 #endif // UNIT_H

@@ -345,22 +345,21 @@
 	<iostream>
 	<string>
 
-1433005869 source:c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\student.cpp
+1433138080 source:c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\student.cpp
 	"student.h"
-
-1433005809 c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\student.h
+	<algorithm>
 	"unit.h"
+
+1433138080 c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\student.h
 	"include\results.h"
 	"MyVector.h"
-	<string>
-	<algorithm>
-
-1432996448 c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\unit.h
-	<iostream>
+	"BinaryTree.h"
 	<string>
 
-1432996448 c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\include\results.h
-	<iostream>
+1433138012 c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\unit.h
+	<string>
+
+1433138103 c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\include\results.h
 	<string>
 	"../unit.h"
 	"date.h"
@@ -368,28 +367,37 @@
 1433006077 c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\myvector.h
 	<iostream>
 
-1432996448 source:c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\unit.cpp
+1433138012 source:c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\unit.cpp
 	"unit.h"
+	<iostream>
 
-1432996449 source:c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\src\results.cpp
+1433138103 source:c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\src\results.cpp
 	"../include/results.h"
+	<iostream>
 
-1433007433 source:c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\src\studentio.cpp
+1433138141 source:c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\src\studentio.cpp
 	"StudentIO.h"
-
-1432996448 c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\include\studentio.h
-	"../student.h"
-	<stdlib.h>
-	<fstream>
 	<algorithm>
+	<fstream>
 	<cctype>
+	<stdlib.h>
+
+1433138205 c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\include\studentio.h
+	"../student.h"
+	"BinaryTree.h"
 	<string>
 	<map>
 
-1433010793 source:c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\main.cpp
+1433138232 source:c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\main.cpp
+	<cstdlib>
 	<iostream>
 	<string>
 	"include\StudentIO.h"
 	<map>
 	<sstream>
+	"include\BinaryTree.h"
+
+1433092053 c:\users\jake\desktop\data structures and abstractions\main  project and source code\main  project and source code\main  project and source code\include\binarytree.h
+	<cstddef>
+	<iostream>
 

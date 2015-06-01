@@ -1,6 +1,7 @@
 // COURSE.CPP - Course class implementation
 
 #include "unit.h"
+#include <iostream>
 
 Unit::Unit()
 {
@@ -41,4 +42,27 @@ void Unit::SetName(string nam)
 void Unit::SetId(string nId)
 {
   id = nId;
+}
+
+bool operator < (const Unit & lhs, const Unit & rhs)
+{
+    int compareInt; // Integer produced by compare
+    compareInt = (lhs.GetId()).compare(rhs.GetId());
+
+    if(compareInt <= 0)
+    {
+        return false; // lhs is greater than or equal to rhs
+    }
+
+    return true; // ID is less than rhs
+}
+
+bool operator == (const Unit & lhs, const Unit & rhs)
+{
+    if(lhs.GetId().compare(rhs.GetId()) == 0)
+    {
+        return true;
+    }
+
+    return false;
 }

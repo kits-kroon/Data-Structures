@@ -1,6 +1,8 @@
 // REGIST.CPP - Student class implementation.
 
 #include "student.h"
+#include <algorithm>
+#include "unit.h"
 
 Student::Student()
 {
@@ -43,19 +45,9 @@ const long Student::GetStudentId() const
     return studentId;
 }
 
-const string Student::GetUnitName(unsigned i) const
-{
-    return (*results)[i].GetUnitName();
-}
-
 const string Student::GetUnitId(unsigned i) const
 {
     return (*results)[i].GetUnitId();
-}
-
-const unsigned Student::GetUnitCredits(unsigned i) const
-{
-    return (*results)[i].GetUnitCredits();
 }
 
 const unsigned Student::GetDay(unsigned i) const
@@ -105,19 +97,9 @@ void Student::SetLastName(string last)
     lName = last;
 }
 
-void Student::SetUnitName(unsigned i, string name)
-{
-    (*results)[i].SetUnitName(name);
-}
-
 void Student::SetUnitId(unsigned i, string id)
 {
     (*results)[i].SetUnitId(id);
-}
-
-void Student::SetUnitCredits(unsigned i, unsigned cred)
-{
-    (*results)[i].SetUnitCredits(cred);
 }
 
 void Student::SetResult(unsigned i, double res)
@@ -147,7 +129,7 @@ void Student::SetYear(unsigned i, unsigned year)
 
     //--------------------- CALCULATIONS ---------------//
 
-const double Student::CalculateGPA() const
+const double Student::CalculateGPA(BinaryTree<Unit> & units) const
 {
     /*
      * Information on calculating a GPA according to this format can
@@ -165,24 +147,30 @@ const double Student::CalculateGPA() const
 
     for(unsigned i = 0; i < GetSize(); i++)
     {
+        Unit searchUnit;
+        searchUnit.SetId(GetUnitId(i));
+
+        Unit helperUnit;
+        helperUnit = units.Search(searchUnit);
+
         if(GetResult(i) >= 80) // HD
         {
-            preDivisionTotal += GetUnitCredits(i) * 4;
+            preDivisionTotal += helperUnit.GetCredits() * 4;
         }
         else if(GetResult(i) >= 70) // D
         {
-            preDivisionTotal += GetUnitCredits(i) * 3;
+            preDivisionTotal += helperUnit.GetCredits() * 3;
         }
         else if(GetResult(i) >= 60) // C
         {
-            preDivisionTotal += GetUnitCredits(i) * 2;
+            preDivisionTotal += helperUnit.GetCredits() * 2;
         }
         else if(GetResult(i) >= 50) // P
         {
-            preDivisionTotal += GetUnitCredits(i) * 1;
+            preDivisionTotal += helperUnit.GetCredits() * 1;
         }
 
-        totalCreditPoints += GetUnitCredits(i); // Counts the total credits including fails
+        totalCreditPoints += helperUnit.GetCredits(); // Counts the total credits including fails
     }
 
     GPA = preDivisionTotal / totalCreditPoints;
@@ -245,9 +233,7 @@ void Student::Copy(const Student &obj)
 
         for(unsigned i = 0; i < obj.GetSize(); i++)
         {
-            SetUnitName(i, obj.GetUnitName(i));
             SetUnitId(i, obj.GetUnitId(i));
-            SetUnitCredits(i, obj.GetUnitCredits(i));
             SetResult(i, obj.GetResult(i));
             SetResultSemester(i, obj.GetResultSemester(i));
             SetDay(i, obj.GetDay(i));

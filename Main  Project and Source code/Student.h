@@ -1,11 +1,10 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#include "unit.h"
 #include "include\results.h"
 #include "MyVector.h"
+#include "BinaryTree.h"
 #include <string>
-#include <algorithm>
 
         /**
          * @class Student
@@ -100,17 +99,6 @@ class Student
         const unsigned GetSize() const;
 
                 /**
-                 * @brief Gets the Unit Name at a vector index
-                 *
-                 * Returns the unit name of the Results object at index i in results.
-                 * This will return a default value unless the unit name is set.
-                 *
-                 * @param i - The index of the results vector to return the unit name from
-                 * @return unitName - A constant string representing the unit name of a unit
-                 */
-        const string GetUnitName(unsigned i) const;
-
-                /**
                  * @brief Gets the Unit id at a vector index
                  *
                  * Returns the unit id of the Results object at index i in results.
@@ -120,17 +108,6 @@ class Student
                  * @return unitId - A constant string representing the Unit Id of a unit
                  */
         const string GetUnitId(unsigned i) const;
-
-                /**
-                 * @brief Gets the Unit Credits at a vector index
-                 *
-                 * Returns the credit points of the Results object at index i in results.
-                 * This will return a default value, unless the credits are set.
-                 *
-                 * @param i - The index of the results vector to return the unit credits from
-                 * @return unitCredits - A constant unsigned integer representing the credit points of a unit
-                 */
-        const unsigned GetUnitCredits(unsigned i) const;
 
                 /**
                  * @brief Gets the Day
@@ -253,18 +230,6 @@ class Student
         void SetResultSemester(unsigned i, unsigned sem);
 
                 /**
-                 * @brief Sets the Units Name at index i
-                 *
-                 * Sets the unit name through Results object at index i in results
-                 * The variable type is a string.
-                 *
-                 * @param i - The index of results to set the unitName
-                 * @param name - The name of the unit as a string
-                 * @return void
-                 */
-        void SetUnitName(unsigned i, string name);
-
-                /**
                  * @brief Sets the Units Id
                  *
                  * Sets the unit through Results object at index i in results
@@ -275,18 +240,6 @@ class Student
                  * @return void
                  */
         void SetUnitId(unsigned i, string id);
-
-                /**
-                 * @brief Sets the Units credits
-                 *
-                 * Sets the credits through the Results object at index i in results
-                 * The variable type is an unsigned integer.
-                 *
-                 * @param i - The index of results to set the unit credits
-                 * @param cred - The credit points of the unit
-                 * @return void
-                 */
-        void SetUnitCredits(unsigned i, unsigned cred);
 
                 /**
                  * @brief Sets the day
@@ -337,7 +290,7 @@ class Student
                  *
                  * @return GPA - The GPA of the student as a double
                  */
-        const double CalculateGPA() const;
+        const double CalculateGPA(BinaryTree<Unit> & units) const;
 
                 /**
                  * @brief Finds the highest mark achieved

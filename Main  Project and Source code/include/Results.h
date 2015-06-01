@@ -1,7 +1,6 @@
 #ifndef RESULTS_H
 #define RESULTS_H
 
-#include <iostream>
 #include <string>
 #include "../unit.h"
 #include "date.h"
@@ -150,34 +149,14 @@ class Results
         const unsigned GetSemester() const;
 
                 /**
-                 * @brief Gets the Unit Name
-                 *
-                 * Returns the unit name of a Unit object created by this class.
-                 * This will return a defaul value unless the unit name is set.
-                 *
-                 * @return unitName - A constant string representing the Unit Name of a Unit object
-                 */
-        const string GetUnitName() const;
-
-                /**
                  * @brief Gets the Unit id
                  *
-                 * Returns the unit id of a Unit object created by this class.
+                 * Returns the unit id of the unit that the result was achieved in.
                  * This will return a default value unless the id is set.
                  *
-                 * @return unitId - A constant string representing the Unit Id of a Unit object
+                 * @return unitId - A constant string representing the Unit Id
                  */
         const string GetUnitId() const;
-
-                /**
-                 * @brief Gets the Unit Credits
-                 *
-                 * Returns the credit points of a Unit object created by this class.
-                 * This will return a default value, unless the credits are set.
-                 *
-                 * @return unitCredits - A constant unsigned integer representing the credit points of a Unit object
-                 */
-        const unsigned GetUnitCredits() const;
 
                 /**
                  * @brief Gets the Day
@@ -211,9 +190,9 @@ class Results
 
     private:
         unsigned   result;   /** Result for a unit                    */
-        Unit     aUnit;      /** an object of Unit class              */
         Date     aDate;      /** an object of Date class              */
         unsigned semester;   /** The semester the result was achieved */
+        string unitId;       /** The unit that the result was achieved in */
 
 };
 #endif // RESULTS_H

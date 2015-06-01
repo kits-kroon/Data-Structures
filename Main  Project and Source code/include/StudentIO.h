@@ -2,10 +2,7 @@
 #define STUDENTIO_H
 
 #include "../student.h"
-#include <stdlib.h>
-#include <fstream>
-#include <algorithm>
-#include <cctype>
+#include "BinaryTree.h"
 #include <string>
 #include <map>
 
@@ -51,7 +48,7 @@ class StudentIO
              *
              * @return void
              */
-        void GetHighestMarkOutput(const long sId, map<long, Student> & students) const;
+        void GetHighestMarkOutput(const long sId, map<long, Student> & students, BinaryTree<Unit> & units) const;
 
             /**
              * @brief Outputs unit details with the lowest mark
@@ -61,7 +58,7 @@ class StudentIO
              *
              * @return void
              */
-        void GetLowestMarkOutput(const long sId, map<long, Student> & students) const;
+        void GetLowestMarkOutput(const long sId, map<long, Student> & students, BinaryTree<Unit> & units) const;
 
             /**
              * @brief Outputs a details of a student and their GPA to console
@@ -70,7 +67,7 @@ class StudentIO
              *
              * @return void
              */
-        void GetGPACalcOutput(const long sId, map<long, Student> & students) const;
+        void GetGPACalcOutput(const long sId, map<long, Student> & students, BinaryTree<Unit> & units) const;
 
             /**
              * @brief Sets all information about a student
@@ -80,7 +77,7 @@ class StudentIO
              *
              * @return void
              */
-        void InitialiseIO(map<long, Student> & students);
+        void InitialiseIO(map<long, Student> & students, BinaryTree<Unit> & units);
 
     private:
 

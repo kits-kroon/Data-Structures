@@ -4,11 +4,13 @@
 // author KRI
 //
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
 #include "include\StudentIO.h"
 #include <map>
 #include <sstream>
+#include "include\BinaryTree.h"
 
 using namespace std;
 
@@ -28,12 +30,12 @@ int main()
     long sId = 0; // input of student id
 
     map<long, Student> students;
-    //students = new map<long, Student>();
+    BinaryTree<Unit> unitTree;
 
     try
     {
         StudentIO io("student1.csv", "outdata.txt");
-        io.InitialiseIO(students);
+        io.InitialiseIO(students, unitTree);
 
         PrintMenu(); // Prints the menu for the user
 
@@ -49,21 +51,33 @@ int main()
                     sId = GetInput();
                     if(!(students.find(sId) == students.end()))
                     {
-                        io.GetHighestMarkOutput(sId, students);
+                        io.GetHighestMarkOutput(sId, students, unitTree);
+                    }
+                    else
+                    {
+                        cout << "Student not found" << endl << endl;
                     }
                     break;
                 case 2: // Print lowest mark to screen and output file
                     sId = GetInput();
                     if(!(students.find(sId) == students.end()))
                     {
-                        io.GetLowestMarkOutput(sId, students);
+                        io.GetLowestMarkOutput(sId, students, unitTree);
+                    }
+                    else
+                    {
+                        cout << "Student not found" << endl << endl;
                     }
                     break;
                 case 3: // Print GPA to screen
                     sId = GetInput();
                     if(!(students.find(sId) == students.end()))
                     {
-                        io.GetGPACalcOutput(sId, students);
+                        io.GetGPACalcOutput(sId, students, unitTree);
+                    }
+                    else
+                    {
+                        cout << "Student not found" << endl << endl;
                     }
                     break;
                 case 4: // Exit the program

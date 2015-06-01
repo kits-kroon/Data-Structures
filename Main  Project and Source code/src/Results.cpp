@@ -1,4 +1,5 @@
 #include "../include/results.h"
+#include <iostream>
 
 Results::Results()
 {
@@ -18,20 +19,11 @@ void Results::SetResult(unsigned res)
     result = res;
 }
 
-void Results::SetUnitName(string name)
-{
-    aUnit.SetName(name);
-}
-
 void Results::SetUnitId(string id)
 {
-    aUnit.SetId(id);
+    unitId = id;
 }
 
-void Results::SetUnitCredits(unsigned cred)
-{
-    aUnit.SetCredits(cred);
-}
 
 void Results::SetDay(unsigned day)
 {
@@ -60,19 +52,9 @@ const unsigned Results::GetSemester() const
     return semester;
 }
 
-const string Results::GetUnitName() const
-{
-    return aUnit.GetName();
-}
-
 const string Results::GetUnitId() const
 {
-    return aUnit.GetId();
-}
-
-const unsigned Results::GetUnitCredits() const
-{
-    return aUnit.GetCredits();
+    return unitId;
 }
 
 const unsigned Results::GetDay() const

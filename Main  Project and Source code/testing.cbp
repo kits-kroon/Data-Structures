@@ -40,6 +40,7 @@
 		<Unit filename="Student.h" />
 		<Unit filename="Unit.cpp" />
 		<Unit filename="Unit.h" />
+		<Unit filename="include/BinaryTree.h" />
 		<Unit filename="include/Date.h" />
 		<Unit filename="include/Results.h" />
 		<Unit filename="include/StudentIO.h" />
