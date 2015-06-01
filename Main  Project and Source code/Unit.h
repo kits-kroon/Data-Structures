@@ -100,4 +100,5 @@ class Unit
 bool operator < (const Unit & lhs, const Unit & rhs);
 bool operator == (const Unit & lhs, const Unit & rhs);
 
+
 #endif // UNIT_H

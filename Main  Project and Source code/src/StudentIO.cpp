@@ -3,6 +3,7 @@
 #include <fstream>
 #include <cctype>
 #include <stdlib.h>
+#include "../Unit.h"
 /* Default Constructor is not intended to do anything, but stop the compiler
  * from making a default constructor
  */

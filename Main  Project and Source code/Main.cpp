@@ -1,9 +1,3 @@
-// MAIN.CPP - Case Study, Student Registration
-
-// Count the number of courses taken by the student, calculate total credits
-// author KRI
-//
-
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -11,14 +5,9 @@
 #include <map>
 #include <sstream>
 #include "include\BinaryTree.h"
+#include "unit.h"
 
 using namespace std;
-
-// Main program:
-// Open an input file stream, read a Registration object,
-// including its list of courses. Redisplay all information,
-// and calculate the total credits taken. Write the results
-// to a file stream.
 
 void PrintMenu(); // prototype the method it can be used in main
 long GetInput();
@@ -149,3 +138,25 @@ long GetInput()
     return studentId;
 }
 
+bool operator < (const Unit & lhs, const Unit & rhs)
+{
+    int compareInt; // Integer produced by compare
+    compareInt = (lhs.GetId()).compare(rhs.GetId());
+
+    if(compareInt <= 0)
+    {
+        return false; // lhs is greater than or equal to rhs
+    }
+
+    return true; // ID is less than rhs
+}
+
+bool operator == (const Unit & lhs, const Unit & rhs)
+{
+    if(lhs.GetId().compare(rhs.GetId()) == 0)
+    {
+        return true;
+    }
+
+    return false;
+}
