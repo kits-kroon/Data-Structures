@@ -1,14 +1,8 @@
+Highest GPA: **2.5**
 Student ID: 32067232
-Surname   : Kroon
-Unit code : ICT283
-Unit name : Software Development Frameworks
-Unit mark : 40
-Date      : 04/02/2016
+Surname: Kroon
 
-Student ID: 32067232
-Surname   : Kroon
-Unit code : ICT215
-Unit name : Computer Graphics
-Unit mark : 40
-Date      : 08/06/2016
+Lowest GPA: **2**
+Student ID: 22067232
+Surname: Kroon
 

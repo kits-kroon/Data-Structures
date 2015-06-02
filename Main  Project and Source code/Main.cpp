@@ -69,7 +69,10 @@ int main()
                         cout << "Student not found" << endl << endl;
                     }
                     break;
-                case 4: // Exit the program
+                case 4:
+                    io.GetHighestLowest(students, unitTree);
+                    break;
+                case 5: // Exit the program
                     flag = false;
                     cout << "Thank you for using my program " << endl;
                     break;

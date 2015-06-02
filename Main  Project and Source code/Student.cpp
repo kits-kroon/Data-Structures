@@ -150,26 +150,26 @@ const double Student::CalculateGPA(BinaryTree<Unit> & units) const
 
     for(unsigned i = 0; i < GetSize(); i++)
     {
-        Unit aUnit = GetUnit(GetUnitId(i), units);
+        SetUnit(GetUnitId(i), units); // Sets static unit statUnit
 
         if(GetResult(i) >= 80) // HD
         {
-            preDivisionTotal += aUnit.GetCredits() * 4;
+            preDivisionTotal += statUnit.GetCredits() * 4;
         }
         else if(GetResult(i) >= 70) // D
         {
-            preDivisionTotal += aUnit.GetCredits() * 3;
+            preDivisionTotal += statUnit.GetCredits() * 3;
         }
         else if(GetResult(i) >= 60) // C
         {
-            preDivisionTotal += aUnit.GetCredits() * 2;
+            preDivisionTotal += statUnit.GetCredits() * 2;
         }
         else if(GetResult(i) >= 50) // P
         {
-            preDivisionTotal += aUnit.GetCredits() * 1;
+            preDivisionTotal += statUnit.GetCredits() * 1;
         }
 
-        totalCreditPoints += aUnit.GetCredits(); // Counts the total credits including fails
+        totalCreditPoints += statUnit.GetCredits(); // Counts the total credits including fails
     }
 
     GPA = preDivisionTotal / totalCreditPoints;
@@ -250,7 +250,7 @@ void Student::SetUnit(const Unit &newUnit)
     statUnit.SetCredits(newUnit.GetCredits());
 }
 
-const Unit Student::GetUnit(string unitId, BinaryTree<Unit> & units)
+const bool Student::SetUnit(string unitId, BinaryTree<Unit> & units)
 {
     Unit searchUnit;
     searchUnit.SetId(unitId);
@@ -260,16 +260,19 @@ const Unit Student::GetUnit(string unitId, BinaryTree<Unit> & units)
 
     if(units.Search(searchUnit, sU))
     {
-        return statUnit;
-    }
-    else
-    {
-        searchUnit.SetName("NotFound");
-        searchUnit.SetId("NotFound");
-        searchUnit.SetCredits(0);
+        return true;
     }
 
-    return searchUnit;
+    statUnit.SetName("NotFound");
+    statUnit.SetId("NotFound");
+    statUnit.SetCredits(0);
+
+    return false;
+}
+
+const string Student::GetUnitName()
+{
+    return statUnit.GetName();
 }
 
 Unit Student::statUnit;

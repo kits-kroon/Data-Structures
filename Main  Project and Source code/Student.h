@@ -165,11 +165,12 @@ class Student
         const unsigned GetResultSemester(unsigned i) const;
 
                 /**
-                 * @brief
+                 * @brief Gets the size of the results vector
                  *
+                 * Returns an unsigned integer that is the size of the
+                 * results vector.
                  *
-                 * @param
-                 * @return
+                 * @return size - The size of the results vector as an unsigned integer
                  */
         const unsigned GetResultsSize() const;
 
@@ -332,7 +333,17 @@ class Student
                  * @param unitId - A string containing the Id of a unit
                  * @return aUnit - A unit for a particular
                  */
-        static const Unit GetUnit(string unitId, BinaryTree<Unit> & units);
+        static const bool SetUnit(string unitId, BinaryTree<Unit> & units);
+
+                /**
+                 * @brief Get Unit Name
+                 *
+                 * If the unit has not been set using SetUnit, defaults will
+                 * be returned.
+                 *
+                 * @return unitName - A string containing the name of a unit
+                 */
+        static const string GetUnitName();
 
     private:
 

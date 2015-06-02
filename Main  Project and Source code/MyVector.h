@@ -102,6 +102,8 @@ class MyVector
              */
         T & operator[](const int i);
 
+        void Clear();
+
     private:
         unsigned counter; /** Actual Size of array  */
         unsigned arrSize; /** Allocated memory Size */
@@ -134,6 +136,16 @@ class MyVector
              */
         void Copy(const MyVector &newVec);
 
+            /**
+             * @brief Clears all items in the vector
+             *
+             * Empties the vector of all elements and cleans
+             * the memory.
+             *
+             * @return void
+             */
+        void EmptyVector();
+
 };
 
 template <class T>
@@ -161,12 +173,7 @@ MyVector<T>::MyVector(const MyVector &newVec)
 template <class T>
 MyVector<T>::~MyVector()
 {
-    if(vec != NULL)
-    {
-        delete [] vec;
-    }
-
-    vec = NULL;
+    EmptyVector();
 }
 
 template <class T>
@@ -238,4 +245,23 @@ void MyVector<T>::Copy(const MyVector &newVec)
 
 }
 
+template<class T>
+void MyVector<T>::EmptyVector()
+{
+    if(vec != NULL)
+    {
+        delete [] vec;
+    }
+
+    vec = NULL;
+}
+
+template<class T>
+void MyVector<T>::Clear()
+{
+    EmptyVector();
+    counter = 0;
+    arrSize = 10;
+    vec = new T[arrSize];
+}
 #endif // MYVECTOR_H
