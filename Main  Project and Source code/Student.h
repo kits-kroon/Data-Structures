@@ -129,7 +129,7 @@ class Student
                  * @param i - The index of the results vector to return the month from
                  * @return month - A constant string representing a month
                  */
-        const string GetMonth(unsigned i) const;
+        const unsigned GetMonth(unsigned i) const;
 
                 /**
                  * @brief Gets the Year
@@ -263,7 +263,7 @@ class Student
                  * @param month - The month to be set in the Date object as a string
                  * @return void
                  */
-        void SetMonth(unsigned i, string month);
+        void SetMonth(unsigned i, unsigned month);
 
                 /**
                  * @brief Sets te year
@@ -312,6 +312,11 @@ class Student
                  */
         const unsigned GetLowestMark() const;
 
+                /**
+                 *
+                 *
+                 */
+        const string GetDate(unsigned i) const;
     private:
 
                 /**

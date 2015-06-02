@@ -19,7 +19,6 @@ void StudentIO::GetHighestMarkOutput(const long sId, map<long, Student> & studen
 {
     ofstream oFile(oFileName.c_str());
 
-
     for(unsigned i = 0; i < students[sId].GetSize(); i++)
     {
         if(students[sId].GetResult(i) == students[sId].GetHighestMark())
@@ -34,8 +33,7 @@ void StudentIO::GetHighestMarkOutput(const long sId, map<long, Student> & studen
             oFile << "Unit code : " << students[sId].GetUnitId(i)    << endl;
             oFile << "Unit name : " << unitHelper.GetName()          << endl;
             oFile << "Unit mark : " << students[sId].GetResult(i)    << endl;
-            oFile << "Date      : " << students[sId].GetDay(i) << "/";
-            oFile << students[sId].GetMonth(i) << "/" << students[sId].GetYear(i) << endl;
+            oFile << "Date      : " << students[sId].GetDate(i)      << endl;
             oFile << endl;
 
             cout << "Student ID: " << students[sId].GetStudentId()  << endl;
@@ -43,8 +41,7 @@ void StudentIO::GetHighestMarkOutput(const long sId, map<long, Student> & studen
             cout << "Unit code : " << students[sId].GetUnitId(i)    << endl;
             cout << "Unit name : " << unitHelper.GetName()          << endl;
             cout << "Unit mark : " << students[sId].GetResult(i)    << endl;
-            cout << "Date      : " << students[sId].GetDay(i) << "/";
-            cout << students[sId].GetMonth(i) << "/" << students[sId].GetYear(i) << endl;
+            cout << "Date      : " << students[sId].GetDate(i)      << endl;
             cout << endl;
         }
     }
@@ -71,8 +68,7 @@ void StudentIO::GetLowestMarkOutput(const long sId, map<long, Student> & student
             oFile << "Unit code : " << students[sId].GetUnitId(i)    << endl;
             oFile << "Unit name : " << unitHelper.GetName()          << endl;
             oFile << "Unit mark : " << students[sId].GetResult(i)    << endl;
-            oFile << "Date      : " << students[sId].GetDay(i) << "/";
-            oFile << students[sId].GetMonth(i) << "/" << students[sId].GetYear(i) << endl;
+            oFile << "Date      : " << students[sId].GetDate(i)      << endl;
             oFile << endl;
 
             cout << "Student ID: " << students[sId].GetStudentId()  << endl;
@@ -80,8 +76,7 @@ void StudentIO::GetLowestMarkOutput(const long sId, map<long, Student> & student
             cout << "Unit code : " << students[sId].GetUnitId(i)    << endl;
             cout << "Unit name : " << unitHelper.GetName()          << endl;
             cout << "Unit mark : " << students[sId].GetResult(i)    << endl;
-            cout << "Date      : " << students[sId].GetDay(i) << "/";
-            cout << students[sId].GetMonth(i) << "/" << students[sId].GetYear(i) << endl;
+            cout << "Date      : " << students[sId].GetDate(i)      << endl;
             cout << endl;
         }
     }
@@ -182,7 +177,7 @@ void StudentIO::InitialiseIO(map<long, Student> & students, BinaryTree<Unit> & u
             students[sIdL].SetResult(i, atol(result.c_str()));
             students[sIdL].SetResultSemester(i, atol(sem.c_str()));
             students[sIdL].SetDay(i, atol(day.c_str()));
-            students[sIdL].SetMonth(i, month);
+            students[sIdL].SetMonth(i, atol(month.c_str()));
             students[sIdL].SetYear(i, atol(year.c_str()));
 
         }

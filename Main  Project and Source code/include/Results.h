@@ -113,7 +113,7 @@ class Results
                  * @param month - The month to be set in the Date object as a string
                  * @return void
                  */
-        void SetMonth(string month);
+        void SetMonth(unsigned month);
 
                 /**
                  * @brief Sets te year of the Date object
@@ -176,7 +176,7 @@ class Results
                  *
                  * @return month - A constant string representing the month in a Date object
                  */
-        const string GetMonth() const;
+        const unsigned GetMonth() const;
 
                 /**
                  * @brief Gets the Year
@@ -187,6 +187,8 @@ class Results
                  * Returns the year of a Date object
                  */
         const unsigned GetYear() const;
+
+        const string GetDate() const;
 
     private:
         unsigned   result;   /** Result for a unit                    */

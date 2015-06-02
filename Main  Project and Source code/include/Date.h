@@ -57,7 +57,7 @@ class Date
                  *
                  * @return void
                  */
-        void SetMonth(string mon);
+        void SetMonth(unsigned mon);
 
                 /**
                  * @brief Sets the year
@@ -88,7 +88,7 @@ class Date
                  *
                  * @return month - A constant string representing a month
                  */
-        const string GetMonth() const;
+        const unsigned GetMonth() const;
 
                 /**
                  * @brief Gets the year
@@ -99,10 +99,12 @@ class Date
                  */
         const unsigned GetYear() const;
 
+        const string GetDate() const;
+
         private:
 
             unsigned day;      /** Day for a date   */
-            string   month;    /** Month for a date */
+            unsigned month;    /** Month for a date */
             unsigned year;     /** Year for a date  */
 };
 #endif // DATE_H

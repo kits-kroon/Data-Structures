@@ -55,7 +55,7 @@ const unsigned Student::GetDay(unsigned i) const
     return (*results)[i].GetDay();
 }
 
-const string Student::GetMonth(unsigned i) const
+const unsigned Student::GetMonth(unsigned i) const
 {
     return (*results)[i].GetMonth();
 }
@@ -80,6 +80,10 @@ const unsigned Student::GetResultsSize() const
     return results -> GetSize();
 }
 
+const string Student::GetDate(unsigned i) const
+{
+    return (*results)[i].GetDate();
+}
     //------------------------- SETTERS ---------------------//
 
 void Student::SetStudentId(long sId)
@@ -117,7 +121,7 @@ void Student::SetDay(unsigned i, unsigned day)
     (*results)[i].SetDay(day);
 }
 
-void Student::SetMonth(unsigned i, string month)
+void Student::SetMonth(unsigned i, unsigned month)
 {
     (*results)[i].SetMonth(month);
 }

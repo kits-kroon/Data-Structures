@@ -23,7 +23,7 @@ int main()
 
     try
     {
-        StudentIO io("student1.csv", "outdata.txt");
+        StudentIO io("students.csv", "outdata.txt");
         io.InitialiseIO(students, unitTree);
 
         PrintMenu(); // Prints the menu for the user

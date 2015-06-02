@@ -30,7 +30,7 @@ void Results::SetDay(unsigned day)
     aDate.SetDay(day);
 }
 
-void Results::SetMonth(string month)
+void Results::SetMonth(unsigned month)
 {
     aDate.SetMonth(month);
 }
@@ -62,7 +62,7 @@ const unsigned Results::GetDay() const
     return aDate.GetDay();
 }
 
-const string Results::GetMonth() const
+const unsigned Results::GetMonth() const
 {
     return aDate.GetMonth();
 }
@@ -70,4 +70,9 @@ const string Results::GetMonth() const
 const unsigned Results::GetYear() const
 {
     return aDate.GetYear();
+}
+
+const string Results::GetDate() const
+{
+    return aDate.GetDate();
 }
