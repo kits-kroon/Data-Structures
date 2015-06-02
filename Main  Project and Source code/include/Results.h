@@ -188,6 +188,15 @@ class Results
                  */
         const unsigned GetYear() const;
 
+                /**
+                 * @brief Gets the date of a date object
+                 *
+                 * Returns the date of a date object formatted as dd/mm/yyyy
+                 * So if the date is the 1st of January 2015
+                 * The date will return as 01/01/2015
+                 *
+                 * @return date - the date of a date object dd/mm/yyyy formatting
+                 */
         const string GetDate() const;
 
     private:

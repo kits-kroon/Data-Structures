@@ -2,6 +2,7 @@
 #define UNIT_H
 
 #include <string>
+#include "unit.h"
 
 using namespace std;
 

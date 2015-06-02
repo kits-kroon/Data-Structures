@@ -23,15 +23,13 @@ void StudentIO::GetHighestMarkOutput(const long sId, map<long, Student> & studen
     {
         if(students[sId].GetResult(i) == students[sId].GetHighestMark())
         {
-            Unit searchUnit;
-            searchUnit.SetId(students[sId].GetUnitId(i));
 
-            Unit unitHelper = units.Search(searchUnit);
+            Unit aUnit = Student::GetUnit(students[sId].GetUnitId(i), units);
 
             oFile << "Student ID: " << students[sId].GetStudentId()  << endl;
             oFile << "Surname   : " << students[sId].GetLastName()   << endl;
             oFile << "Unit code : " << students[sId].GetUnitId(i)    << endl;
-            oFile << "Unit name : " << unitHelper.GetName()          << endl;
+            oFile << "Unit name : " << aUnit.GetName()               << endl;
             oFile << "Unit mark : " << students[sId].GetResult(i)    << endl;
             oFile << "Date      : " << students[sId].GetDate(i)      << endl;
             oFile << endl;
@@ -39,7 +37,7 @@ void StudentIO::GetHighestMarkOutput(const long sId, map<long, Student> & studen
             cout << "Student ID: " << students[sId].GetStudentId()  << endl;
             cout << "Surname   : " << students[sId].GetLastName()   << endl;
             cout << "Unit code : " << students[sId].GetUnitId(i)    << endl;
-            cout << "Unit name : " << unitHelper.GetName()          << endl;
+            cout << "Unit name : " << aUnit.GetName()               << endl;
             cout << "Unit mark : " << students[sId].GetResult(i)    << endl;
             cout << "Date      : " << students[sId].GetDate(i)      << endl;
             cout << endl;
@@ -58,15 +56,12 @@ void StudentIO::GetLowestMarkOutput(const long sId, map<long, Student> & student
         if(students[sId].GetResult(i) == students[sId].GetLowestMark())
         {
 
-            Unit searchUnit;
-            searchUnit.SetId(students[sId].GetUnitId(i));
-
-            Unit unitHelper = units.Search(searchUnit);
+            Unit aUnit = Student::GetUnit(students[sId].GetUnitId(i), units);
 
             oFile << "Student ID: " << students[sId].GetStudentId()  << endl;
             oFile << "Surname   : " << students[sId].GetLastName()   << endl;
             oFile << "Unit code : " << students[sId].GetUnitId(i)    << endl;
-            oFile << "Unit name : " << unitHelper.GetName()          << endl;
+            oFile << "Unit name : " << aUnit.GetName()               << endl;
             oFile << "Unit mark : " << students[sId].GetResult(i)    << endl;
             oFile << "Date      : " << students[sId].GetDate(i)      << endl;
             oFile << endl;
@@ -74,7 +69,7 @@ void StudentIO::GetLowestMarkOutput(const long sId, map<long, Student> & student
             cout << "Student ID: " << students[sId].GetStudentId()  << endl;
             cout << "Surname   : " << students[sId].GetLastName()   << endl;
             cout << "Unit code : " << students[sId].GetUnitId(i)    << endl;
-            cout << "Unit name : " << unitHelper.GetName()          << endl;
+            cout << "Unit name : " << aUnit.GetName()               << endl;
             cout << "Unit mark : " << students[sId].GetResult(i)    << endl;
             cout << "Date      : " << students[sId].GetDate(i)      << endl;
             cout << endl;

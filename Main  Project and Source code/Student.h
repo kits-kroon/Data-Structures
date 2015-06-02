@@ -313,10 +313,27 @@ class Student
         const unsigned GetLowestMark() const;
 
                 /**
+                 * @brief Gets the date of a date object
                  *
+                 * Returns the date of a date object formatted as dd/mm/yyyy
+                 * So if the date is the 1st of January 2015
+                 * The date will return as 01/01/2015
                  *
+                 * @return date - the date of a date object dd/mm/yyyy formatting
                  */
         const string GetDate(unsigned i) const;
+
+                /**
+                 * @brief Gets a unit object for a unit Id
+                 *
+                 * Finds a unit object in a particular unit and returns
+                 * the unit Id.
+                 *
+                 * @param unitId - A string containing the Id of a unit
+                 * @return aUnit - A unit for a particular
+                 */
+        static const Unit GetUnit(string unitId, BinaryTree<Unit> & units);
+
     private:
 
                 /**
@@ -340,9 +357,23 @@ class Student
                  */
         void Copy(const Student &obj);
 
+                /**
+                 * @brief Sets the static unit object
+                 *
+                 * Deep copies a unit object that is passed in via a constant reference
+                 * This information is copied into the static variable aUnit.
+                 *
+                 * @param newUnit - A constant reference to a Unit object
+                 * @return void
+                 */
+        static void SetUnit(const Unit &newUnit);
+
         long     studentId;         /** Student Id for a student                  */
         string   fName;             /** The first name of the student             */
         string   lName;             /** The last name of the student              */
         MyVector<Results> *results; /** A vector of results objects               */
+        static Unit statUnit;       /** A static unit for retrieving a unit from the binary tree */
+
 };
+
 #endif //STUDENT_H

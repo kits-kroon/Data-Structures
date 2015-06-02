@@ -72,9 +72,10 @@ class BinaryTree
              * Traverses the binary tree in order, performs
              * an operation on the data at each leaf
              *
+             * @param travFunc - A pointer to a function that will act on the data of each node
              * @return void
              */
-        void InOrder();
+        void InOrder(void(*travFunc)(const T & data));
 
             /**
              * @brief Processes the data in a pre order way
@@ -82,9 +83,10 @@ class BinaryTree
              * Traverses the binary tree pre order, performs
              * an operation on the data at each leaf
              *
+             * @param travFunc - A pointer to a function that will act on the data of each node
              * @return void
              */
-        void PreOrder();
+        void PreOrder(void(*travFunc)(const T & data));
 
             /**
              * @brief Processes the data in a post order way
@@ -92,9 +94,10 @@ class BinaryTree
              * Traverses the binary tree post order, performs
              * an operation on the data at each leaf
              *
+             * @param travFunc - A pointer to a function that will act on the data of each node
              * @return void
              */
-        void PostOrder();
+        void PostOrder(void(*travFunc)(const T & data));
 
             /**
              * @brief Searches for an object matching type T
@@ -103,10 +106,11 @@ class BinaryTree
              * for non primitive types. Searches for an object and returns
              * it where a match is found. Returns NULL if object isn't found.
              *
+             * @param searchFunc - A pointer to a function that will act on the data at the node.
              * @param key - An object of type T to search for
              * @return Object - An object of of type T that matches the key
              */
-        T Search(T key);
+        bool Search(T key, void(*searchFunc)(const T & data));
 
             /**
              * @brief Makes a deep copied version of the BinaryTree being assigned
@@ -161,7 +165,7 @@ class BinaryTree
              * @param parent - a pointer reference to a node to traverse
              * @return void
              */
-        void InOrderHelper(node *& parent);
+        void InOrderHelper(node *& parent, void(*travFunc)(const T & data));
 
             /**
              * @brief A recursive function for Pre Order traversal
@@ -171,7 +175,7 @@ class BinaryTree
              * @param parent - a pointer reference to a node to traverse
              * @return void
              */
-        void PreOrderHelper(node *& parent);
+        void PreOrderHelper(node *& parent, void(*travFunc)(const T & data));
 
             /**
              * @brief A recursive function for Post Order traversal
@@ -181,7 +185,7 @@ class BinaryTree
              * @param parent - a pointer reference to a node to traverse
              * @return void
              */
-        void PostOrderHelper(node *& parent);
+        void PostOrderHelper(node *& parent, void(*travFunc)(const T & data));
 
             /**
              * @brief A helper method for the destructor
@@ -215,7 +219,7 @@ class BinaryTree
              * @param parent - The node of the parent of the leaves being looked at.
              * @return object - An object of type T or a primitive, if not found returns NULL
              */
-        T SearchHelper(T key, node *& parent);
+        bool SearchHelper(T key, node *& parent, void(*searchFunc)(const T & data));
 };
 
 template <class T>
@@ -351,19 +355,19 @@ void BinaryTree<T>::Insert(T newData, node *& parent)
 //****************************************************************************
 
 template <class T>
-void BinaryTree<T>::InOrder()
+void BinaryTree<T>::InOrder(void(*travFunc)(const T & data))
 {
-    InOrderHelper(root);
+    InOrderHelper(root, travFunc);
 }
 
 template <class T>
-void BinaryTree<T>::InOrderHelper(node *& parent)
+void BinaryTree<T>::InOrderHelper(node *& parent, void(*travFunc)(const T & data))
 {
     if(parent != NULL)
     {
-        InOrderHelper(parent -> left);
-        cout << parent -> data << endl;
-        InOrderHelper(parent -> right);
+        InOrderHelper(parent -> left, travFunc);
+        travFunc(parent -> data);
+        InOrderHelper(parent -> right, travFunc);
     }
 }
 
@@ -372,19 +376,19 @@ void BinaryTree<T>::InOrderHelper(node *& parent)
 //****************************************************************************
 
 template <class T>
-void BinaryTree<T>::PreOrder()
+void BinaryTree<T>::PreOrder(void(*travFunc)(const T & data))
 {
-    PreOrderHelper(root);
+    PreOrderHelper(root, travFunc);
 }
 
 template <class T>
-void BinaryTree<T>::PreOrderHelper(node *& parent)
+void BinaryTree<T>::PreOrderHelper(node *& parent, void(*travFunc)(const T & data))
 {
     if(parent != NULL)
     {
-        cout << parent -> data << endl;
-        PreOrderHelper(parent -> left);
-        PreOrderHelper(parent -> right);
+        travFunc(parent -> data);
+        PreOrderHelper(parent -> left, travFunc);
+        PreOrderHelper(parent -> right, travFunc);
     }
 }
 
@@ -393,19 +397,19 @@ void BinaryTree<T>::PreOrderHelper(node *& parent)
 //****************************************************************************
 
 template <class T>
-void BinaryTree<T>::PostOrder()
+void BinaryTree<T>::PostOrder(void(*travFunc)(const T & data))
 {
-    PostOrderHelper(root);
+    PostOrderHelper(root, travFunc);
 }
 
 template <class T>
-void BinaryTree<T>::PostOrderHelper(node *& parent)
+void BinaryTree<T>::PostOrderHelper(node *& parent, void(*travFunc)(const T & data))
 {
     if(parent != NULL)
     {
-        PostOrderHelper(parent -> left);BinaryTree<T>::
-        PostOrderHelper(parent -> right);
-        cout << parent -> data << endl;
+        PostOrderHelper(parent -> left, travFunc);
+        PostOrderHelper(parent -> right, travFunc);
+        travFunc(parent -> data);
     }
 }
 
@@ -414,39 +418,36 @@ void BinaryTree<T>::PostOrderHelper(node *& parent)
 //****************************************************************************
 
 template <class T>
-T BinaryTree<T>::Search(T key)
+bool BinaryTree<T>::Search(T key ,void(*searchFunc)(const T & data))
 {
-    T object;
-    object = SearchHelper(key, root);
+    bool found;
+    found = SearchHelper(key, root, searchFunc);
 
-    return object;
+    return found;
 }
 
 template<class T>
-T BinaryTree<T>::SearchHelper(T key, node *& parent)
+bool BinaryTree<T>::SearchHelper(T key, node *& parent, void(*searchFunc)(const T & data))
 {
     if(parent != NULL)
     {
         if(key == parent -> data)
         {
-            return parent -> data;
+            searchFunc(parent -> data);
+            return true;
         }
 
         if(key < parent -> data)
         {
-            return SearchHelper(key, parent -> left);
+            return SearchHelper(key, parent -> left, searchFunc);
         }
         else
         {
-            return SearchHelper(key, parent -> right);
+            return SearchHelper(key, parent -> right, searchFunc);
         }
     }
-    else
-    {
-        throw -1;
-    }
 
-    return T();
+    return false;
 }
 
 #endif // BINARYTREE_H

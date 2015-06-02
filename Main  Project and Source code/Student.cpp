@@ -2,7 +2,6 @@
 
 #include "student.h"
 #include <algorithm>
-#include "unit.h"
 
 Student::Student()
 {
@@ -151,30 +150,26 @@ const double Student::CalculateGPA(BinaryTree<Unit> & units) const
 
     for(unsigned i = 0; i < GetSize(); i++)
     {
-        Unit searchUnit;
-        searchUnit.SetId(GetUnitId(i));
-
-        Unit helperUnit;
-        helperUnit = units.Search(searchUnit);
+        Unit aUnit = GetUnit(GetUnitId(i), units);
 
         if(GetResult(i) >= 80) // HD
         {
-            preDivisionTotal += helperUnit.GetCredits() * 4;
+            preDivisionTotal += aUnit.GetCredits() * 4;
         }
         else if(GetResult(i) >= 70) // D
         {
-            preDivisionTotal += helperUnit.GetCredits() * 3;
+            preDivisionTotal += aUnit.GetCredits() * 3;
         }
         else if(GetResult(i) >= 60) // C
         {
-            preDivisionTotal += helperUnit.GetCredits() * 2;
+            preDivisionTotal += aUnit.GetCredits() * 2;
         }
         else if(GetResult(i) >= 50) // P
         {
-            preDivisionTotal += helperUnit.GetCredits() * 1;
+            preDivisionTotal += aUnit.GetCredits() * 1;
         }
 
-        totalCreditPoints += helperUnit.GetCredits(); // Counts the total credits including fails
+        totalCreditPoints += aUnit.GetCredits(); // Counts the total credits including fails
     }
 
     GPA = preDivisionTotal / totalCreditPoints;
@@ -247,3 +242,34 @@ void Student::Copy(const Student &obj)
 
     }
 }
+
+void Student::SetUnit(const Unit &newUnit)
+{
+    statUnit.SetName(newUnit.GetName());
+    statUnit.SetId(newUnit.GetId());
+    statUnit.SetCredits(newUnit.GetCredits());
+}
+
+const Unit Student::GetUnit(string unitId, BinaryTree<Unit> & units)
+{
+    Unit searchUnit;
+    searchUnit.SetId(unitId);
+
+    static void (*sU)(const Unit&);
+    sU = &SetUnit;
+
+    if(units.Search(searchUnit, sU))
+    {
+        return statUnit;
+    }
+    else
+    {
+        searchUnit.SetName("NotFound");
+        searchUnit.SetId("NotFound");
+        searchUnit.SetCredits(0);
+    }
+
+    return searchUnit;
+}
+
+Unit Student::statUnit;
