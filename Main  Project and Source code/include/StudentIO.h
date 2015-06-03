@@ -149,6 +149,8 @@ class StudentIO
                 /**
                  * @brief Sets all variables relating to the highest GPA
                  *
+                 * Modifies the vectors hnames and hsids, adding the highest achieving students names and student ids
+                 * respectively. Finds the highest GPA and modifies the double value highest.
                  *
                  * @param hnames - A reference to a vector of strings containing the names with the highest gpa
                  * @param hsids - A reference to a vector of long integers containing the student ids with the highest gpa
@@ -158,11 +160,14 @@ class StudentIO
                  *
                  * @return void
                  */
-        void HighestGPA(MyVector<string> & hnames, MyVector<long> & hsids,
+        const void HighestGPA(MyVector<string> & hnames, MyVector<long> & hsids,
                             double & highest, const Student & check, double gpa);
 
                 /**
                  * @brief Sets all variables relating to the lowest GPA
+                 *
+                 * Modifies the vectors lnames and lsids, adding the lowest achieving students names and student ids
+                 * respectively. Finds the lowest GPA and modifies the double value lowest.
                  *
                  * @param lnames - A reference to a vector of strings containing the names with the lowest gpa
                  * @param lsids - A reference to a vector of long integers containg the student ids with the lowest gpa
@@ -172,12 +177,30 @@ class StudentIO
                  *
                  * @return void
                  */
-        void LowestGPA(MyVector<string> & lnames, MyVector<long> & lsids,
+        const void LowestGPA(MyVector<string> & lnames, MyVector<long> & lsids,
                                    double & lowest, const Student & check, double gpa);
 
-        void HighestLowestOutput(MyVector<string> & lnames, MyVector<string> & hnames,
+                /**
+                 * @brief Outputs the highest and lowest gpa as well as average to stream
+                 *
+                 * This function outputs the highest and lowest GPA along with the name and student id
+                 * of all students whom achieved those GPAs respectively. The average GPA is also output.
+                 * This function writes to the stream chosen as a parameter.
+                 *
+                 * @param os - The stream to be written to
+                 * @param lnames - An address to a vector of strings containing the lowest names
+                 * @param hnames - An address to a vector of strings containing the highest names
+                 * @param lSid - An address to a vector of long integers containing the lowest student ids
+                 * @param hSid - An address to a vector of long integer containing the highest student ids
+                 * @param lowest - The lowest GPA achieved
+                 * @param highest - The highest GPA achieved
+                 * @param avg - The average GPA achieved
+                 *
+                 * @return void
+                 */
+        const void HighestLowestOutput(ostream & os, MyVector<string> & lnames, MyVector<string> & hnames,
                          MyVector<long> & lSid, MyVector<long> & hSid,
-                         double lowest, double highest);
+                         const double lowest, const double highest, const double avg);
 
 };
 #endif // STUDENTIO_H

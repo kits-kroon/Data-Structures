@@ -126,11 +126,14 @@ void StudentIO::GetHighestLowest(map<long, Student> & students, BinaryTree<Unit>
             student with the highest or lowest GPA they can be recorded
             in a large class body this is a possibility, without this function
             the output of this program would not be accurate */
-
+    ofstream oFile(oFileName.c_str());
     MyVector<string> hnames;
     MyVector<long>   hsids;
     MyVector<string> lnames;
     MyVector<long>   lsids;
+    double total; // total GPAs
+
+    total = 0;
 
     map<long, Student>::iterator it; // iterator for map
 
@@ -140,12 +143,17 @@ void StudentIO::GetHighestLowest(map<long, Student> & students, BinaryTree<Unit>
 
         HighestGPA(hnames, hsids, highest, it -> second, gpa);
         LowestGPA(lnames, lsids, lowest, it -> second, gpa);
+
+        total += gpa;
     }
 
-    HighestLowestOutput(lnames, hnames, lsids, hsids, lowest, highest);
+    total = total / students.size(); //total is now the average
+
+    HighestLowestOutput(cout, lnames, hnames, lsids, hsids, lowest, highest, total);
+    HighestLowestOutput(oFile, lnames, hnames, lsids, hsids, lowest, highest, total);
 }
 
-void StudentIO::HighestGPA(MyVector<string> & hnames, MyVector<long> & hsids, double & highest, const Student & check, double gpa)
+const void StudentIO::HighestGPA(MyVector<string> & hnames, MyVector<long> & hsids, double & highest, const Student & check, double gpa)
 {
     if(gpa > highest)
     {
@@ -165,7 +173,7 @@ void StudentIO::HighestGPA(MyVector<string> & hnames, MyVector<long> & hsids, do
 
 }
 
-void StudentIO::LowestGPA(MyVector<string> & lnames, MyVector<long> & lsids, double & lowest, const Student & check, double gpa)
+const void StudentIO::LowestGPA(MyVector<string> & lnames, MyVector<long> & lsids, double & lowest, const Student & check, double gpa)
 {
         if(gpa < lowest)
         {
@@ -184,42 +192,32 @@ void StudentIO::LowestGPA(MyVector<string> & lnames, MyVector<long> & lsids, dou
         }
 }
 
-void StudentIO::HighestLowestOutput(MyVector<string> & lnames, MyVector<string> & hnames,
+const void StudentIO::HighestLowestOutput(ostream & os, MyVector<string> & lnames, MyVector<string> & hnames,
                          MyVector<long> & lSid, MyVector<long> & hSid,
-                         double lowest, double highest)
+                         const double lowest, const double highest, const double avg)
 {
-    ofstream oFile(oFileName.c_str());
-
-    cout  << "Highest GPA: **" << highest << "**" << endl;
-    oFile << "Highest GPA: **" << highest << "**" << endl;
-
+    os  << "Highest GPA: **" << highest << "**" << endl;
 
         /* Students with the highest GPA */
     for(unsigned i = 0; i < hnames.GetSize(); i++)
     {
-        cout << "Student ID: " << hSid[i] << endl;
-        cout << "Surname: "    << hnames[i] << endl;
-        cout << endl;
-
-        oFile << "Student ID: " << hSid[i] << endl;
-        oFile << "Surname: "    << hnames[i] << endl;
-        oFile << endl;
+        os << "Student ID: " << hSid[i] << endl;
+        os << "Surname: "    << hnames[i] << endl;
+        os << endl;
     }
 
-    cout  << "Lowest GPA: **" << lowest << "**" << endl;
-    oFile << "Lowest GPA: **" << lowest << "**" << endl;
+    os  << "Lowest GPA: **" << lowest << "**" << endl;
 
         /*Students with the highest GPA */
     for(unsigned i = 0; i <lnames.GetSize(); i++)
     {
-        cout << "Student ID: " << lSid[i] << endl;
-        cout << "Surname: "    << lnames[i] << endl;
-        cout << endl;
-
-        oFile << "Student ID: " << lSid[i] << endl;
-        oFile << "Surname: "    << lnames[i] << endl;
-        oFile << endl;
+        os << "Student ID: " << lSid[i] << endl;
+        os << "Surname: "    << lnames[i] << endl;
+        os << endl;
     }
+
+    os << "Average GPA is: " << avg << endl;
+    os << endl;
 }
 
 void StudentIO::SetIFileName(string inf)

@@ -6,3 +6,5 @@ Lowest GPA: **2**
 Student ID: 22067232
 Surname: Kroon
 
+Average GPA is: 2.25
+

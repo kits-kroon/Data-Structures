@@ -469,3 +469,61 @@
 	"include\BinaryTree.h"
 	"unit.h"
 
+1433248333 source:c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\main.cpp
+	<cstdlib>
+	<iostream>
+	<string>
+	"include\StudentIO.h"
+	<map>
+	<sstream>
+	"include\BinaryTree.h"
+	"unit.h"
+
+1433249520 c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\include\studentio.h
+	"../student.h"
+	"BinaryTree.h"
+	<string>
+	<map>
+
+1433248333 c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\student.h
+	"include\results.h"
+	"MyVector.h"
+	"BinaryTree.h"
+	<string>
+
+1433248335 c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\include\results.h
+	<string>
+	"../unit.h"
+	"date.h"
+
+1433248333 c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\unit.h
+	<string>
+	"unit.h"
+
+1433248335 c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\include\date.h
+	<iostream>
+	<string>
+
+1433248333 c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\myvector.h
+	<iostream>
+
+1433248335 c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\include\binarytree.h
+	<cstddef>
+	<iostream>
+
+1433248333 source:c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\student.cpp
+	"student.h"
+	<algorithm>
+
+1433248333 source:c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\unit.cpp
+	"unit.h"
+	<iostream>
+
+1433248336 source:c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\src\date.cpp
+	"Date.h"
+	<sstream>
+
+1433248336 source:c:\users\user\desktop\data-structures-master\data-structures-master\main  project and source code\src\results.cpp
+	"../include/results.h"
+	<iostream>
+
