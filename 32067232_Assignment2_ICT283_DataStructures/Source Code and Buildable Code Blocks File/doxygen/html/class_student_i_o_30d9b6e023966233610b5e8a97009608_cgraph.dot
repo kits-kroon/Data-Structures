@@ -1,0 +1,15 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
+  node [fontname="Helvetica",fontsize=10,shape=record];
+  rankdir=LR;
+  Node1 [label="StudentIO::InitialiseIO",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node2 [label="BinaryTree::Insert",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_binary_tree.html#b51eaa94426e6b1498af8dc6e9b1a259",tooltip="Insert data into the BinaryTree."];
+  Node1 -> Node3 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node3 [label="Unit::SetCredits",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#b71a0f015dcb682b31e3ad9fa87fe77c",tooltip="Set the credit value."];
+  Node1 -> Node4 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node4 [label="Unit::SetId",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#17ab0dc55019784de350ccc8fc43e72c",tooltip="Set the UnitId."];
+  Node1 -> Node5 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node5 [label="Unit::SetName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#66f2dfe0cf5519d2cbdb0e8b1a285dec",tooltip="Set the name of the unit."];
+}

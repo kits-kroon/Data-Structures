@@ -1,0 +1,70 @@
+# depslib dependency file v1.0
+1433509060 source:c:\users\jake\desktop\data structures final\testing\finalprojecttesting\date.cpp
+	"Date.h"
+	<sstream>
+
+1433509058 c:\users\jake\desktop\data structures final\testing\finalprojecttesting\date.h
+	<iostream>
+	<string>
+
+1433679429 source:c:\users\jake\desktop\data structures final\testing\finalprojecttesting\main.cpp
+	<iostream>
+	<fstream>
+	<cstdlib>
+	"unit.h"
+	"date.h"
+	"results.h"
+	"student.h"
+	"myvector.h"
+	"binarytree.h"
+	"studentio.h"
+
+1433665533 source:c:\users\jake\desktop\data structures final\testing\finalprojecttesting\results.cpp
+	"results.h"
+	<iostream>
+
+1433661965 c:\users\jake\desktop\data structures final\testing\finalprojecttesting\results.h
+	<string>
+	"unit.h"
+	"date.h"
+
+1433663120 c:\users\jake\desktop\data structures final\testing\finalprojecttesting\unit.h
+	<string>
+	"unit.h"
+
+1433509253 source:c:\users\jake\desktop\data structures final\testing\finalprojecttesting\student.cpp
+	"student.h"
+	<algorithm>
+
+1433667406 c:\users\jake\desktop\data structures final\testing\finalprojecttesting\student.h
+	"results.h"
+	"MyVector.h"
+	"BinaryTree.h"
+	<string>
+
+1433509058 c:\users\jake\desktop\data structures final\testing\finalprojecttesting\myvector.h
+	<iostream>
+
+1433664473 c:\users\jake\desktop\data structures final\testing\finalprojecttesting\binarytree.h
+	<cstddef>
+	<iostream>
+
+1433670470 source:c:\users\jake\desktop\data structures final\testing\finalprojecttesting\studentio.cpp
+	"StudentIO.h"
+	<algorithm>
+	<fstream>
+	<cctype>
+	<stdlib.h>
+	"Unit.h"
+	"MyVector.h"
+
+1433661972 c:\users\jake\desktop\data structures final\testing\finalprojecttesting\studentio.h
+	"student.h"
+	"BinaryTree.h"
+	<string>
+	<map>
+
+1433510524 source:c:\users\jake\desktop\data structures final\testing\finalprojecttesting\unit.cpp
+	"unit.h"
+	<iostream>
+

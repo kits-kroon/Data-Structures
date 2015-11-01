@@ -1,0 +1,13 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
+  node [fontname="Helvetica",fontsize=10,shape=record];
+  rankdir=LR;
+  Node1 [label="Results::Results",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node2 [label="Results::SetResult",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_results.html#f036ab1645eb9650a9b3fe5ac747746c",tooltip="Sets the Result."];
+  Node1 -> Node3 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node3 [label="Results::SetSemester",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_results.html#e302bffe115add80ec9fbf550ddfb941",tooltip="Sets the semester."];
+  Node1 -> Node4 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node4 [label="Results::SetUnitId",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_results.html#7a61a96f7e15b358a77c6e04f6d79508",tooltip="Sets the Units Id."];
+}

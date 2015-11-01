@@ -1,0 +1,21 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
+  node [fontname="Helvetica",fontsize=10,shape=record];
+  rankdir=LR;
+  Node1 [label="StudentIO::GetHighestMarkOutput",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node2 [label="Student::GetUnitName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_student.html#4d497b1c1563becea65c4b71f9a9ff95",tooltip="Get Unit Name."];
+  Node2 -> Node3 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node3 [label="Unit::GetName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#d8c5805fedd0807cf19ddf92c6c046de",tooltip="Get the Unit Name."];
+  Node1 -> Node4 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node4 [label="Student::SetUnit",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_student.html#792496a52593c18e9aa4430ce219395f",tooltip="Gets a unit object for a unit Id."];
+  Node4 -> Node5 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node5 [label="BinaryTree::Search",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_binary_tree.html#0f12a4d4cc9b66f36b6c6f3e02affc25",tooltip="Searches for an object matching type T."];
+  Node4 -> Node6 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node6 [label="Unit::SetCredits",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#b71a0f015dcb682b31e3ad9fa87fe77c",tooltip="Set the credit value."];
+  Node4 -> Node7 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node7 [label="Unit::SetId",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#17ab0dc55019784de350ccc8fc43e72c",tooltip="Set the UnitId."];
+  Node4 -> Node8 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node8 [label="Unit::SetName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#66f2dfe0cf5519d2cbdb0e8b1a285dec",tooltip="Set the name of the unit."];
+}

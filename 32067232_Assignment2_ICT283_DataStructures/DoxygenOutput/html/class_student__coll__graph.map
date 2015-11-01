@@ -1,0 +1,5 @@
+<area shape="rect" id="node2" href="$class_unit.html" title="Stores data for the unit class." alt="" coords="5,696,109,905">
+<area shape="rect" id="node3" href="$class_my_vector.html" title="{MyVector\&lt; Results \&gt;\n|&#45; counter\l&#45; arrSize\l&#45; vec\l|+ MyVector()\l+ MyVector()\l+ MyVector()\l+ ~MyVector()\l+ GetSize()\l+ operator[]()\l+ Clear()\l&#45; GrowVector()\l&#45; Copy()\l&#45; EmptyVector()\l}" alt="" coords="133,681,280,920">
+<area shape="rect" id="node4" href="$class_results.html" title="Stores results for a unit, also manages Unit and Date classes." alt="" coords="47,277,174,619">
+<area shape="rect" id="node5" href="$class_date.html" title="Stores day, month and year for a date class." alt="" coords="61,5,160,215">
+<area shape="rect" id="node6" href="$class_my_vector.html" title="Creates an vector that dynamically expands and contracts." alt="" coords="199,329,313,567">

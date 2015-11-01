@@ -1,0 +1,19 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
+  node [fontname="Helvetica",fontsize=10,shape=record];
+  rankdir=LR;
+  Node1 [label="Unit::operator=",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node2 [label="Unit::GetCredits",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#861d3accd4c6ba0f726035ad86d4596c",tooltip="Get the credits."];
+  Node1 -> Node3 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node3 [label="Unit::GetId",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#4453917b7b6b252686f50d4928a8d7f6",tooltip="Get the Unit Id."];
+  Node1 -> Node4 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node4 [label="Unit::GetName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#d8c5805fedd0807cf19ddf92c6c046de",tooltip="Get the Unit Name."];
+  Node1 -> Node5 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node5 [label="Unit::SetCredits",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#b71a0f015dcb682b31e3ad9fa87fe77c",tooltip="Set the credit value."];
+  Node1 -> Node6 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node6 [label="Unit::SetId",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#17ab0dc55019784de350ccc8fc43e72c",tooltip="Set the UnitId."];
+  Node1 -> Node7 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node7 [label="Unit::SetName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_unit.html#66f2dfe0cf5519d2cbdb0e8b1a285dec",tooltip="Set the name of the unit."];
+}

@@ -1,0 +1,11 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize=10,labelfontname="Helvetica",labelfontsize=10];
+  node [fontname="Helvetica",fontsize=10,shape=record];
+  rankdir=LR;
+  Node1 [label="Student::GetHighestMark",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node2 [label="Student::GetResult",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_student.html#4f3a80e8936d5f18b9b8b564f6412bc0",tooltip="Gets the Result."];
+  Node1 -> Node3 [color="midnightblue",fontsize=10,style="solid",fontname="Helvetica"];
+  Node3 [label="Student::GetSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_student.html#105dc2ff62873b83d32edea845cdfa4b",tooltip="Returns the amount of initialised object in the vector."];
+}

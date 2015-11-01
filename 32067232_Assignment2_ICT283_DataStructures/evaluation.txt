@@ -1,0 +1,13 @@
+From the testing that has been done, which I feel was fairly comprehensive I have a fully working program.
+I think the menu system though could use a lot of work, sometimes user input can feel awkward and with more time
+I would certainly extend this to be a more capable and easy to use system. That said, the algorithms behind each 
+menu option works fine as does my BinaryTree, which I'm proud of. In the future I would like to make my BinaryTree
+more complete by adding delete methods but given that they are not necessary for this assignment having them
+would not make my assignment minimal. I have aimed to be minimal and complete by avoiding code duplication where possible
+though obviously in some circumstances though the algorithm is almost identical, there are minor parts such as comparison 
+operators that can make it difficult to do this without being excessive. After all the code must be readable too, not just
+an abstracted mess which consists of method calls containing single lines of code. Despite testing my program as comprehensively 
+as I could given my time frame of course errors may occur in the future, as with anything. I will aim to fix them when they arise
+as quickly as possible. Also though my program can handle new line characters as well as leading and trailing whitespace, it cannot handle
+changes to the file format very easily, if at all and this will surely break the program instantly. I kept the angled brackets for year
+on question 5 as I felt they were more aesthetically pleasing and emphasised the year more than leaving it blank.
